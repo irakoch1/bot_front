@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="App">
       ira_samaya_krasivaya
-        <button>onClick={onClose}>Закрыть</button>
+        <button> onClick ={onClose}>Закрыть</button>
     </div>
   );
 }
