@@ -2,20 +2,18 @@ import React from 'react';
 import './Form.css';
 import {useTelegram} from "../../hooks/useTelegram";
 import {useEffect} from "react";    //в видео нет
-import {useState} from "react"; // в видео нет
+import {useState} from "react";
+import Button from "../Button/Button"; // в видео нет
 
 
-tg.MainButton = undefined;  // нет в видео
+// tg.MainButton = Button;  // нет в видео
 const Form = () => {
     const [country, setCountry] = useState('');
     const [street, setStreet] = useState('');
     const [subject, setSubject] = useState('physical');
-    const {tg: {MainButton}} = useTelegram();
+    const {tg} = useTelegram();
 
 
-    MainButton.setParams = function (param) {
-
-    } // в видео нет
     useEffect(() => {
     tg.MainButton.setParams({
         text: 'Отправить данные'
