@@ -5,7 +5,7 @@ import {useEffect} from "react";    //в видео нет
 import {useState} from "react"; // в видео нет
 
 
-tg.MainButton = undefined; - // нет в видео
+tg.MainButton = undefined;  // нет в видео
 const Form = () => {
     const [country, setCountry] = useState('');
     const [street, setStreet] = useState('');
