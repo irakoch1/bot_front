@@ -5,30 +5,30 @@ import {useEffect} from "react";    //в видео нет
 import {useState} from "react"; // в видео нет
 
 
-
+tg.MainButton = undefined; - // нет в видео
 const Form = () => {
     const [country, setCountry] = useState('');
     const [street, setStreet] = useState('');
     const [subject, setSubject] = useState('physical');
-    const {tg} = useTelegram();
+    const {tg: {MainButton}} = useTelegram();
 
-    tg.MainButton.setParams = function (param) {
 
-    }
+    MainButton.setParams = function (param) {
+
+    } // в видео нет
     useEffect(() => {
-    tg.MainButton.setParams({   //  в ручную назначила метод
+    tg.MainButton.setParams({
         text: 'Отправить данные'
     })
     }, [])
 
     useEffect(() => {
-    if (!street || !country){
-        tg.MainButton.hide();
-    } else {
-        tg.MainButton.show();
-    }
-        }, [country, street]
-    )
+        if (!street || !country) {
+            tg.MainButton.hide();
+        } else {
+            tg.MainButton.show();
+        }
+        }, [country, street])
 
     const onChangeCountry = (e) => {
         setCountry(e.target.value)
