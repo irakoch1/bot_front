@@ -13,7 +13,7 @@ const Form = () => {
     const [subject, setSubject] = useState('physical');
     const {tg} = useTelegram();
 
-    const onSendDate = useCallback(() => {
+    const onSendData = useCallback(() => {
         const data = {
             country,
             street,
