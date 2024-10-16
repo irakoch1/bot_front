@@ -3,7 +3,7 @@ import './Form.css';
 import {useTelegram} from "../../hooks/useTelegram";
 import {useEffect} from "react";    //в видео нет
 import {useState} from "react";
-import Button from "../Button/Button"; // в видео нет
+// import Button from "../Button/Button"; // в видео нет
 
 
 // tg.MainButton = Button;  // нет в видео
