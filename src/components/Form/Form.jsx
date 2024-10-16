@@ -23,9 +23,9 @@ const Form = () => {
     },[])
 
     useEffect(() => {
-        tg.WebApp.onEvent('mainButtonClicked', onSendDate)
+        tg.WebApp.onEvent('mainButtonClicked', onSendData)
         return () => {
-            tg.WebApp.offEvent('mainButtonClicked', onSendDate)
+            tg.WebApp.offEvent('mainButtonClicked', onSendData)
         }
 }, [])
 
