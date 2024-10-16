@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import './Form.css';
 import {useTelegram} from "../../hooks/useTelegram";
 import {useEffect} from "react";    //в видео нет
@@ -13,6 +13,21 @@ const Form = () => {
     const [subject, setSubject] = useState('physical');
     const {tg} = useTelegram();
 
+    const onSendDate = useCallback(() => {
+        const data = {
+            country,
+            street,
+            subject,
+        }
+        tg.sendDate(JSON.stringify(data));
+    },[])
+
+    useEffect(() => {
+        Telegram.WebApp.onEvent('mainButtonClicked', onSendDate)
+        return () => {
+            tg.WebApp.offEvent('mainButtonClicked', onSendDate)
+        }
+}, [])
 
     useEffect(() => {
     tg.MainButton.setParams({
