@@ -6,12 +6,13 @@ import {useState} from "react";
 import Button from "../Button/Button"; // в видео нет
 
 
-// tg.MainButton = Button;  // нет в видео
+tg.MainButton = Button;  // нет в видео
 const Form = () => {
     const [country, setCountry] = useState('');
     const [street, setStreet] = useState('');
     const [subject, setSubject] = useState('physical');
     const {tg} = useTelegram();
+
 
     const onSendData = useCallback(() => {
         const data = {
@@ -20,19 +21,20 @@ const Form = () => {
             subject,
         }
         tg.sendDate(JSON.stringify(data));
-    },[])
+    }, [])
+
 
     useEffect(() => {
         tg.WebApp.onEvent('mainButtonClicked', onSendData)
         return () => {
             tg.WebApp.offEvent('mainButtonClicked', onSendData)
         }
-}, [])
+    }, [])
 
     useEffect(() => {
-    tg.MainButton.setParams({
-        text: 'Отправить данные'
-    })
+        tg.MainButton.setParams({
+            text: 'Отправить данные'
+        })
     }, [])
 
     useEffect(() => {
@@ -41,7 +43,7 @@ const Form = () => {
         } else {
             tg.MainButton.show();
         }
-        }, [country, street])
+    }, [country, street])
 
     const onChangeCountry = (e) => {
         setCountry(e.target.value)
@@ -79,6 +81,6 @@ const Form = () => {
 
         </div>
     );
-};
+}
 
 export default Form;
