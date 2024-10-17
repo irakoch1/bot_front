@@ -3,10 +3,12 @@ import './Form.css';
 import {useTelegram} from "../../hooks/useTelegram";
 import {useEffect} from "react";    //в видео нет
 import {useState} from "react";
-import Button from "../Button/Button"; // в видео нет
+import Button from "../Button/Button";
+import App from "../../App"; // в видео нет
 
 
-tg.MainButton = Button;  // нет в видео
+//tg.MainButton = Button;  // нет в видео
+
 const Form = () => {
     const [country, setCountry] = useState('');
     const [street, setStreet] = useState('');
@@ -24,12 +26,12 @@ const Form = () => {
     }, [])
 
 
-    useEffect(() => {
-        tg.WebApp.onEvent('mainButtonClicked', onSendData)
-        return () => {
-            tg.WebApp.offEvent('mainButtonClicked', onSendData)
-        }
-    }, [])
+    // useEffect(() => {
+    //     tg.WebApp.onEvent('mainButtonClicked', onSendData)
+    //     return () => {
+    //         tg.WebApp.offEvent('mainButtonClicked', onSendData)
+    //     }
+    // }, [])
 
     useEffect(() => {
         tg.MainButton.setParams({
@@ -80,7 +82,7 @@ const Form = () => {
             </select>
 
         </div>
-    );
+    )
 }
 
 export default Form;
