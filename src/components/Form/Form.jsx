@@ -26,12 +26,12 @@ const Form = () => {
     }, [])
 
 
-    // useEffect(() => {
-    //     tg.WebApp.onEvent('mainButtonClicked', onSendData)
-    //     return () => {
-    //         tg.WebApp.offEvent('mainButtonClicked', onSendData)
-    //     }
-    // }, [])
+    useEffect(() => {
+        tg.WebApp.onEvent('mainButtonClicked', onSendData)
+        return () => {
+            tg.WebApp.offEvent('mainButtonClicked', onSendData)
+        }
+    }, [])
 
     useEffect(() => {
         tg.MainButton.setParams({
