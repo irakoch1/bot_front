@@ -11,7 +11,7 @@
     width: 100%;
     background: lightgrey;
     height: 100px;
-    margin: 0 auto;
+    margin: 50px;
     background: var(--tg-theme-button-color);
 
 }
