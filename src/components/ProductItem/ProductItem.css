@@ -1,7 +1,7 @@
 .product {
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--tg-theme-button-color);
+    border: 30px solid var(--tg-theme-button-color);
     padding: 40px;
     width: 170px;
 }
